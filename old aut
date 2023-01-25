@@ -40,7 +40,11 @@ end)
 
 game:GetService('RunService').Stepped:connect(function()
     if Toggle then
-        game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		if game.Players.LocalPlayer.UserID = 1618301318 then
+        	game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("104"))
+		else
+			game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		end
 	wait(1)
     end
 end)
@@ -70,7 +74,11 @@ end)
 
 game:GetService('RunService').Stepped:connect(function()
     if Toggle then
-        game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		if game.Players.LocalPlayer.UserID = 1618301318 then
+        	game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("104"))
+		else
+			game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		end
 	wait(1)
     end
 end)
@@ -100,7 +108,11 @@ end)
 
 game:GetService('RunService').Stepped:connect(function()
     if Toggle then
-        game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		if game.Players.LocalPlayer.UserID = 1618301318 then
+        	game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("104"))
+		else
+			game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		end
 	wait(1)
     end
 end)
@@ -130,7 +142,11 @@ end)
 
 game:GetService('RunService').Stepped:connect(function()
     if Toggle then
-        game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		if game.Players.LocalPlayer.UserID = 1618301318 then
+        	game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("104"))
+		else
+			game:GetService("ReplicatedStorage").TETeleport:FireServer(BrickColor.new("26"))
+		end
 	wait(1)
     end
 end)
