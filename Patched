@@ -1,0 +1,1731 @@
+local plrs = game:GetService('Players')
+
+local plr = plrs.LocalPlayer
+
+local l__UserInputService__4 = game:GetService("UserInputService");
+
+local twait = task.wait
+
+local mtahfloor = math.floor
+
+local methrandom = math.random
+
+local tabinsert = table.insert
+
+local tableclear = table.clear
+
+local debuginfo = debug.getinfo
+
+local debugupvalue = debug.getupvalues
+
+local pass = getrenv()._G.Pass
+
+local mt = getrawmetatable(plr.Backpack.Main)
+
+local backup = mt.__namecall
+
+if setreadonly then setreadonly(mt, false) else make_writeable(mt, true) end
+
+mt.__namecall = newcclosure(function(...)
+
+	local method = getnamecallmethod()	local args = {...}
+
+	if tostring(method) == 'GetState' and tostring(args[1]) == 'Humanoid' then
+
+		return Enum.HumanoidStateType.Running --\\[[ Can do move MidAir ]]//
+
+	end
+
+	if tostring(method) == "FindFirstChild" and args[1].Name == plr.Name and args[1].Parent.Name == "ServerCooldown" then
+
+		return nil --\\[[ Hypnotize client to think we don't have cooldown ]]// Actually fixed
+
+	end
+
+	return backup(...)
+
+end)
+
+setreadonly(mt, true) 
+
+make_writeable(mt, false)
+
+-- Gui to Lua
+
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+
+--Properties:
+
+ScreenGui.Parent = plr:WaitForChild("PlayerScripts")
+
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- Scripts:
+
+local releaseDeb = false
+
+local stacked = 0
+
+local event = Instance.new("BindableEvent")
+
+local plrTarget
+
+local customrelease, ccr = nil, 0 --counter custom release
+
+local tampered = false
+
+local RELEASE = false
+
+local v23 = {};
+
+local hateball = game:GetService("ReplicatedStorage").Resources.MoveEffects.HateBall.HateBall
+
+local hateballHrp = hateball.HumanoidRootPart
+
+local hateballHumanoid = hateball.Humanoid
+
+local function AYBNCT_fake_script() -- ScreenGui.FireClientUwU 
+
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	script.Name = 'FireClients'
+
+	Instance.new("StringValue", script).Name = 'MadeBy Sakomori_FTW'
+
+	-- Script GUID: {A0161CB0-036D-4C89-B06E-B6A66D745947}
+
+	-- Decompiled with the Synapse X Luau decompiler.
+
+	local v8 = require(game.ReplicatedStorage.ClientModules.MainModule);
+
+	plr:WaitForChild("PlayerScripts"):WaitForChild("FireClient").Disabled = true
+
+	for _,v in pairs(plr.PlayerScripts.FireClient:GetChildren()) do
+
+		v:Clone().Parent = script
+
+	end
+
+	plr:WaitForChild("PlayerScripts"):WaitForChild("FireClient"):Destroy()
+
+	workspace.DescendantAdded:Connect(function(p1)
+
+		if p1.Name == "GasterBlaster" or p1.Name == "BigGasterBlaster" or p1.Name == "ChaosBuster" then
+
+			pcall(function()
+
+				if (p1:WaitForChild("RootPart").Position - plr.Character.HumanoidRootPart.Position).magnitude >= 150 then
+
+					p1:Destroy();
+
+				end;
+
+			end);
+
+		end;
+
+	end);
+
+	local function TransparentText(p2, p3)
+
+		v8.CreateTween(p2, { 1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0 }, {
+
+			TextTransparency = p3
+
+		}, true);
+
+	end;
+
+	local s,e = pcall(function()
+
+		local v11 = OverlapParams.new();
+
+		v11.FilterType = Enum.RaycastFilterType.Whitelist;
+
+		l__UserInputService__4.InputBegan:Connect(function(a1,a2)
+
+			if a2 then return end
+
+			if a1.KeyCode == Enum.KeyCode.T then
+
+				if not tampered then
+
+					tampered = true
+
+					event:Fire("tamper", true)
+
+				else
+
+					tampered = false
+
+					event:Fire("tamper", false)
+
+				end
+
+			elseif a1.KeyCode == Enum.KeyCode.Y then
+
+				if not customrelease then
+
+					RELEASE = true
+
+					twait(.25)
+
+					if l__UserInputService__4:IsKeyDown(Enum.KeyCode.Y) then repeat RELEASE = true twait() until not l__UserInputService__4:IsKeyDown(Enum.KeyCode.Y) end
+
+				else
+
+					RELEASE = true
+
+					ccr = customrelease
+
+				end
+
+			end
+
+		end)
+
+		l__UserInputService__4.InputEnded:Connect(function(a3,a4)
+
+			if a4 then return end
+
+			if a3.KeyCode == Enum.KeyCode.Y then
+
+				RELEASE = false
+
+			end
+
+		end)
+
+		local l__UserInputService__4 = game:GetService("UserInputService");
+
+		local l__Remotes__7 = game.ReplicatedStorage:WaitForChild("Remotes");
+
+		local l__mouse__10 = plr:GetMouse();
+
+		--[[//BEATDOWN PART\\]]--
+
+		local toggleBeatDown = false
+
+		local AnimBarrageStart = "rbxassetid://4820734492"
+
+		local AnimBarrage = --[["rbxassetid://4820768545"]] "rbxassetid://3201766456"
+
+		local Finisher = "rbxassetid://3306660344"
+
+		local songBdsm = Instance.new('Sound', plr); songBdsm.Name = 'bdsm'; songBdsm.SoundId = getsynasset("bdsm.mp3"); songBdsm.Volume = 4; songBdsm.Parent = plr
+
+		local lyricslol = [[Standing here, I realize|You were just like me, trying to make history|But who's to judge|The right from wrong|When our guard is down I think we'll both agree|That violence breeds violence.|But in the end it has to be this way|I've curved my own path, you've followed your wrath|But maybe we're both the same|The world has turned, and so many have burned|But nobody is to blame|It's tearing across this barren wasted land|I feel new life could be born beneath|The blood stained SANDDD|Beneath The blood stained SANDD]]
+
+		local splitLyrics = lyricslol:split("|")
+
+		local eventRemote = l__Remotes__7.Events
+
+		local stopLyrics = false
+
+		local garbage
+
+		local function yieldTextDelay(text:string)
+
+			local tebar = plr.Character.Head:WaitForChild('TextBar')
+
+			local tetebar = tebar:WaitForChild("TextLabel")
+
+			repeat twait(.01) until tetebar.Text == "*"..text
+
+		end
+
+		local function sayLyrics(delay:number, delay2:number) --[[Should be 12, delay2 is the pause in the song which is 23]]
+
+			coroutine.wrap(function()
+
+				twait(delay)
+
+				for i = 1,#splitLyrics do
+
+					if stopLyrics then
+
+						break
+
+					end
+
+					if plr.Character.Head:FindFirstChild('TextBar') then
+
+						plr.Character.Head.TextBar:Destroy()
+
+					end
+
+					eventRemote:FireServer({pass, "Chatted", splitLyrics[i], splitLyrics[i]:find('blood') and Color3.new(1, 0, 0) or splitLyrics[i]:find('violence') and Color3.new(1, 0, 0) or Color3.new(1, 1, 1)})
+
+					yieldTextDelay(splitLyrics[i])
+
+					if splitLyrics[i]:find("it has to be this way") then
+
+						wait(delay2)
+
+					else
+
+						wait(1.25)
+
+						if splitLyrics[i]:find('SANDDD') then
+
+							wait(7)
+
+						end
+
+					end
+
+					if splitLyrics[i] == "But nobody is to blame" then
+
+						wait(2)
+
+					end
+
+					if splitLyrics[i]:find("violence") then
+
+						wait(2.7)
+
+					end
+
+					if splitLyrics[i] == "But maybe we're both the same" then
+
+						wait(1.4)
+
+					end
+
+				end
+
+			end)()
+
+		end
+
+		l__UserInputService__4.InputBegan:Connect(function(p1,p2)
+
+			if p2 then return end
+
+			if p1.KeyCode == Enum.KeyCode.Z then
+
+			--[[ Hurt Anims:
+
+				GrabbedLeg1
+
+				SweepHurt
+
+				InWall
+
+				RecoveringWall
+
+				InGround
+
+				SpGrab
+
+				Dodge1
+
+				Dodge2
+
+				FinalPunchHurt
+
+				GutHurt
+
+				Hurt1
+
+				Hurt2
+
+				Hurt3
+
+				Knockback1
+
+				Knockback2
+
+				Knockback3
+
+				PerfectBlock
+
+				Recovering
+
+				SlideOnGround
+
+				Stunned
+
+				GroundHurt
+
+				SpearHurt
+
+				KnockUp
+
+			]]
+
+			
+
+				local lockonval = game:service("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+
+				local hurtanim = game:GetService("ReplicatedStorage").Animations.HurtAnimations
+
+				local hurtsound = game:GetService("ReplicatedStorage").Sounds
+
+				local hurtysound = "Punch"
+
+				local lookvec = plr.Character.HumanoidRootPart.CFrame.LookVector * 6
+
+				local DMGEvent = game:GetService("ReplicatedStorage").Remotes.Damage
+
+				local HitEffect = "LightHitEffect"
+
+				local counterBD = 0
+
+				local placeHolder = Instance.new('Animation')
+
+				local function damage(htime, atype, heffect, hanim, sounde, vel, dmg)
+
+					local f2 = lockonval 
+
+					local f3 = {["HitTime"] = htime,
+
+						["Type"] = atype,
+
+						["HitEffect"] = heffect,
+
+						["HurtAnimation"] = hanim,
+
+						["Position"] = plr.Character.HumanoidRootPart.Position + vel,["CombatInv"] = true,
+
+						["Effect"] = "SussyDmg",
+
+						["BlockAble"] = false,
+
+						["Sound"] = sounde,
+
+						["Damage"] = dmg}
+
+					if atype == 'Knockback' then
+
+						f3['Position'] = nil
+
+						f3['Velocity'] = vel
+
+					end
+
+					coroutine.wrap(function()
+
+						DMGEvent:InvokeServer(pass,f2,f3)
+
+					end)()
+
+				end
+
+				toggleBeatDown = true
+
+				stopLyrics = false
+
+				placeHolder.AnimationId = AnimBarrageStart
+
+				local pop = plr.Character.Humanoid:LoadAnimation(placeHolder)
+
+				pop:Play()
+
+				twait(.8)
+
+				--[[ 5 Song = reapertale]]
+
+				songBdsm.TimePosition = 40
+
+				songBdsm.Looped = true
+
+				songBdsm:Resume()
+
+				sayLyrics(12, 26) -- Last should be 23
+
+				damage(1, "Normal", 'HeavyHitEffect', nil, {[-1] = hurtsound.HyperGonerLaugh, [-2] = hurtsound.HyperGonerLaugh, [-3] = hurtsound.HyperGonerLaugh, [-4] = hurtsound.HyperGonerLaugh}, lookvec, 5)
+
+				twait(.25)
+
+				pop:Stop()
+
+				placeHolder.AnimationId = AnimBarrage
+
+				pop = plr.Character.Humanoid:LoadAnimation(placeHolder)
+
+				pop:Play()
+
+				pop:AdjustSpeed(3.5)
+
+			    function bar()
+
+                    task.spawn(function()
+
+                        for i = 0,1,1 do
+
+				            damage(1,"Normal", HitEffect, hurtanim["Hurt"..methrandom(1,3)], hurtsound[hurtysound], lookvec, .1)
+
+				        end
+
+				    end)
+
+				end
+
+				repeat
+
+				    coroutine.wrap(function()
+
+				        task.spawn(function()
+
+					        bar()
+
+					   end)
+
+					end)()
+
+					counterBD += 1
+
+					twait(.055)
+
+					garbage = methrandom(1,3)
+
+					if garbage == 1 then
+
+						HitEffect = "HeavyHitEffect"
+
+						hurtysound = "Kick"
+
+					elseif garbage == 2 then
+
+						HitEffect = "LightHitEffect"..methrandom(2,3)
+
+						hurtysound = "Punch"
+
+					elseif garbage == 3 then
+
+						HitEffect = "LightHitEffect"
+
+						hurtysound = "Punch"
+
+					end
+
+					if counterBD >= 15 then
+
+						counterBD = 0
+
+						Release(360)
+
+					end
+
+				until not toggleBeatDown
+
+				pop:Stop()
+
+				placeHolder.AnimationId = Finisher
+
+				pop = plr.Character.Humanoid:LoadAnimation(placeHolder)
+
+				pop:Play()
+
+				twait(.1)
+
+				damage(2, "Knockback", HitEffect, hurtanim.Knockback1, hurtsound[hurtysound], Vector3.new(0,2,0), 5)
+
+				songBdsm:Stop()
+
+			end
+
+		end)
+
+		l__UserInputService__4.InputEnded:Connect(function(p1,p2)
+
+			if p2 then return end
+
+			if p1.KeyCode == Enum.KeyCode.Z then
+
+				toggleBeatDown = false
+
+				stopLyrics = true
+
+			end
+
+		end)
+
+		--[[//END OF BEATDOWN PART\\]]--
+
+		l__Remotes__7:WaitForChild("InvokeClient").OnClientInvoke = function(p4)
+
+			local v12 = p4[1];
+
+			if v12 == "Challenged" then
+
+				local l__ChallengeInfo__13 = plr.PlayerGui.UI.Ui.ChallengeInfo;
+
+				local l__Info__14 = l__ChallengeInfo__13.Info;
+
+				local l__Accept__15 = l__ChallengeInfo__13.Accept;
+
+				local l__Decline__16 = l__ChallengeInfo__13.Decline;
+
+				l__Info__14.Text = p4[2].Name .. " has challenged you";
+
+				l__Info__14.Transparency = 1;
+
+				TransparentText(l__Info__14, 0);
+
+				l__Accept__15.Transparency = 1;
+
+				TransparentText(l__Accept__15, 0);
+
+				l__Decline__16.Transparency = 1;
+
+				TransparentText(l__Decline__16, 0);
+
+				l__Info__14.Visible = true;
+
+				l__Accept__15.Visible = true;
+
+				l__Decline__16.Visible = true;
+
+				local u1 = nil;
+
+				local v17 = l__Decline__16.Activated:Connect(function()
+
+					u1 = "Declined";
+
+				end);
+
+				local vv17 = l__Accept__15.Activated:Connect(function()
+
+					u1 = "Accepted";
+
+				end)
+
+				while true do
+
+					twait(0.03);
+
+					if u1 ~= nil then
+
+						return u1
+
+					end;
+
+					if not plr.Character then
+
+						break;
+
+					end;
+
+					if plr.Character and not plr.Character:FindFirstChild("Challenger") then
+
+						break;
+
+					end;		
+
+				end;
+
+				v17:disconnect();
+
+				vv17:disconnect();
+
+				TransparentText(l__Info__14, 1);
+
+				TransparentText(l__Accept__15, 1);
+
+				TransparentText(l__Decline__16, 1);
+
+				if u1 ~= nil then
+
+					return nil;
+
+				end;
+
+			end;
+
+			if v12 == "SpawnModel" then
+
+				local v18 = p4[2]:Clone();
+
+				v18:SetPrimaryPartCFrame(p4[3]);
+
+				v18.Parent = workspace;
+
+			elseif v12 == "RemoveModel" then
+
+				local v19 = p4[2];
+
+				if workspace:FindFirstChild(v19) then
+
+					workspace:FindFirstChild(v19):Destroy();
+
+				end;
+
+			end;
+
+			if v12 == "GetTouched" then
+
+				local v20 = p4[2];
+
+				local v21 = p4[3];
+
+				local v22 = p4[4];
+
+				if v22 then
+
+					v20 = v22.CFrame;
+
+				end;
+
+				if not tampered then
+
+					tableclear(v23)
+
+					for _, v25 in pairs(workspace:GetChildren()) do
+
+						if v25:FindFirstChild("HumanoidRootPart") and v25.Name ~= plr.Name and not v25:FindFirstChild("Inv") then
+
+							tabinsert(v23, v25.HumanoidRootPart);
+
+						end;
+
+					end;
+
+					v11.FilterDescendantsInstances = v23;
+
+					return workspace:GetPartBoundsInBox(v20, typeof(v21) == "Vector3" and v21 or Vector3.new(v21, v21, v21), v11);
+
+				else
+
+					stacked += 1
+
+					event:Fire("stack", stacked)
+
+					if not customrelease then
+
+						repeat twait(.4) until RELEASE
+
+						if not l__UserInputService__4:IsKeyDown(Enum.KeyCode.J) then RELEASE = false end
+
+						stacked -= 1
+
+						event:Fire("stack", stacked)
+
+						tableclear(v23)
+
+						if not plrTarget.Character then
+
+							for _, v25 in pairs(workspace:GetChildren()) do
+
+								if v25:FindFirstChild("HumanoidRootPart") and v25.Name ~= plr.Name then
+
+									tabinsert(v23, v25.HumanoidRootPart)
+
+								end;
+
+							end;
+
+							tabinsert(v23, plr.Character.HumanoidRootPart)
+
+							return v23
+
+						else
+
+							if plrTarget.Character then
+
+								tabinsert(v23, plrTarget.Character.HumanoidRootPart)
+
+							else
+
+								for _, v25 in pairs(workspace:GetChildren()) do
+
+									if v25:FindFirstChild("HumanoidRootPart") and v25.Name ~= plrTarget.Name then
+
+										tabinsert(v23, v25.HumanoidRootPart)
+
+									end;
+
+								end;
+
+							end
+
+							return v23
+
+						end	
+
+					else
+
+						repeat twait(.4) until RELEASE and ccr > 0
+
+						stacked -= 1
+
+						ccr -= 1
+
+						event:Fire("stack", stacked)
+
+						tableclear(v23)
+
+						if not plrTarget.Character then
+
+							event:Fire("target", "does not have hrp")
+
+							for _, v25 in pairs(workspace:GetChildren()) do
+
+								if v25:FindFirstChild("HumanoidRootPart") and v25.Name ~= plr.Name then
+
+									tabinsert(v23, v25.HumanoidRootPart)
+
+								end;
+
+							end;
+
+							tabinsert(v23, plr.Character.HumanoidRootPart)
+
+							if ccr < 0 then ccr = 0 end
+
+							return v23
+
+						else
+
+							if plrTarget.Character then
+
+								if hateballHumanoid.Health < 1 then
+
+									tabinsert(v23, plrTarget.Character.HumanoidRootPart)
+
+								else
+
+									tabinsert(v23, hateballHrp)
+
+								end
+
+							else
+
+								for _, v25 in pairs(workspace:GetChildren()) do
+
+									if v25:FindFirstChild("HumanoidRootPart") and v25.Name ~= plrTarget.Name then
+
+										tabinsert(v23, v25.HumanoidRootPart)
+
+									end;
+
+								end;
+
+							end
+
+							if ccr < 0 then ccr = 0 end
+
+							return v23
+
+						end	
+
+					end
+
+				end
+
+			end;
+
+			if v12 == "getRootPartCF" then
+
+				return plr.Character.HumanoidRootPart.CFrame;
+
+			end;
+
+			if v12 == "GetTouchedPlayer" then
+
+				return { true, plr.Character:FindFirstChild("Humanoid").MoveDirection };
+
+			end;
+
+			if v12 == "getMousePos" then
+
+				local l__LockOn__53 = plr.Backpack.Main.LockOnScript.LockOn;
+
+				if l__LockOn__53.Value then
+
+					return l__LockOn__53.Value.HumanoidRootPart.Position;
+
+				else
+
+					return l__mouse__10.Hit.Position;
+
+				end;
+
+			end;
+
+			if v12 == "GetPartCFrame" then
+
+				return p4[2].CFrame;
+
+			end;
+
+			if v12 == "EditMusic" then
+
+				plr.PlayerScripts.Music[p4[2]]:Fire(p4[3]);
+
+			end;
+
+			if v12 == "CharacterSelection" then
+
+				local v54 = script.CharacterSelection:Clone();
+
+				v54.Parent = plr.PlayerGui;
+
+				while true do
+
+					twait(0.03);
+
+					if v54:WaitForChild("Character").Value ~= "" then
+
+						break;
+
+					end;			
+
+				end;
+
+				task.spawn(function()
+
+					twait(1);
+
+					v54:Destroy();
+
+				end);
+
+				return v54:WaitForChild("Character").Value;
+
+			end;
+
+			if v12 == "DieScreen" then
+
+				return true
+
+			end
+
+		end;
+
+	end)
+
+	function Release(customcustomrelease:number)
+
+		if releaseDeb or not plrTarget then return end
+
+		releaseDeb = true
+
+		delay(.06, function() releaseDeb = false end)
+
+		if customrelease then
+
+			if customcustomrelease then
+
+				ccr = customcustomrelease
+
+			else
+
+				ccr = customrelease
+
+			end
+
+			RELEASE = true
+
+		end
+
+	end
+
+	local blacklistedDeb = { --So many right? yeah. its pain, there's 30 of them
+
+		["KnifeColorReverseDebounce"] = true; -- GT!Chara
+
+		["KnifeColorChangeColorDebounce"] = true;
+
+		["SliceEffectDebounce"] = true; -- all 
+
+		["SlashEffectDebounce"] = true;
+
+		['TakeStaminaDebounce'] = true;
+
+		['RunningDebounce'] = true;
+
+		["SummonScythefalseDebounce"] = true; -- Betty
+
+		["SummonScythetrueDebounce"] = true; -- Betty
+
+		["CombatGrabDebounce"] = true; -- Betty
+
+		["SummonScytheTruePowertrueDebounce"] = true;
+
+		["SummonScytheTruePowerfalseDebounce"] = true;
+
+		["ChaosBladesSummonDebounce"] = true; -- asriel
+
+		["ChaosBusterSpawnBusterDebounce"] = true;
+
+		["EffectCheck"] = true; -- idk wtf is this but happen when Scythe 1 used
+
+		["ChattedDebounce"] = true; -- fuck chat deb
+
+		["ObtainServerLocationDebounce"] = true; -- fuck this
+
+		["changeEyefalseDebounce"] = true; -- new sans
+
+		["changeEyetrueDebounce"] = true;
+
+		["BlockingtrueDebounce"] = true;
+
+		["BlockingfalseDebounce"] = true;
+
+		["SpawnBonetrueDebounce"] = true; -- sans
+
+		["SpawnBonefalseDebounce"] = true;
+
+		["EquipWeaponDebounce"] = true; -- Frisk
+
+		["SpawnWeaponfalseDebounce"] = true; --Undyne
+
+		["SpawnWeapontrueDebounce"] = true;
+
+		["DashDebounce"] = true;
+
+		["AirSpawnDebounce"] = true;
+
+		["SummonBonefalseDebounce"] = true; --XSans
+
+		["SummonBonetrueDebounce"] = true;
+
+		['MoveDebounce'] = true -- tELEPORT
+
+	}
+
+	local sc = workspace:WaitForChild("ServerEffects"):WaitForChild("ServerCooldown")
+
+	if sc:FindFirstChild(plr.Name) then
+
+		sc:FindFirstChild(plr.Name).ChildAdded:Connect(function(child)
+
+			print(child, " Added [][][][][][][][][][][]")
+
+			if child.Parent and not blacklistedDeb[child.Name] and not child.Name:find("Teleport") then
+
+				Release()
+
+			end
+
+		end)
+
+	end
+
+	sc.ChildAdded:Connect(function(ch)
+
+		if ch.Name == plr.Name then
+
+			ch.ChildAdded:Connect(function(child)
+
+				print(child, " Added {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}")
+
+				if child.Parent and not blacklistedDeb[child.Name] and not child.Name:find("Teleport") then
+
+					Release()
+
+				end
+
+			end)
+
+		end
+
+	end)
+
+	warn(s,e)
+
+end
+
+coroutine.wrap(AYBNCT_fake_script)()
+
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+
+-- Gui to Lua
+
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+
+local Stacked = Instance.new("TextLabel")
+
+local Tamper = Instance.new("TextLabel")
+
+local TextBox = Instance.new("TextBox")
+
+local Target = Instance.new("TextLabel")
+
+local crelease = Instance.new("TextBox")
+
+--Properties:
+
+ScreenGui.Parent = plr:WaitForChild("PlayerGui")
+
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ScreenGui.ResetOnSpawn = false
+
+Stacked.Name = "Stacked"
+
+Stacked.Parent = ScreenGui
+
+Stacked.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+Stacked.BackgroundTransparency = 1.000
+
+Stacked.Position = UDim2.new(0, 0, 0.352745414, 0)
+
+Stacked.Size = UDim2.new(0.155400157, 0, 0.0831946731, 0)
+
+Stacked.Font = Enum.Font.Arcade
+
+Stacked.Text = "Stacked: 0"
+
+Stacked.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+Stacked.TextScaled = true
+
+Stacked.TextSize = 14.000
+
+Stacked.TextWrapped = true
+
+Tamper.Name = "Tamper"
+
+Tamper.Parent = ScreenGui
+
+Tamper.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+Tamper.BackgroundTransparency = 1.000
+
+Tamper.Position = UDim2.new(0, 0, 0.435940087, 0)
+
+Tamper.Size = UDim2.new(0.155400157, 0, 0.0831946731, 0)
+
+Tamper.Font = Enum.Font.Arcade
+
+Tamper.Text = "Tamper: false"
+
+Tamper.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+Tamper.TextScaled = true
+
+Tamper.TextSize = 14.000
+
+Tamper.TextWrapped = true
+
+TextBox.Parent = ScreenGui
+
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextBox.Position = UDim2.new(0, 0, 0.602329433, 0)
+
+TextBox.Size = UDim2.new(0.149476826, 0, 0.0831946731, 0)
+
+TextBox.Font = Enum.Font.SourceSans
+
+TextBox.Text = "gib name here(nil if want remove)"
+
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+TextBox.TextSize = 14.000
+
+Target.Name = "Target"
+
+Target.Parent = ScreenGui
+
+Target.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+Target.BackgroundTransparency = 1.000
+
+Target.Position = UDim2.new(-0.00298953662, 0, 0.51913476, 0)
+
+Target.Size = UDim2.new(0.155400157, 0, 0.0831946731, 0)
+
+Target.Font = Enum.Font.Arcade
+
+Target.Text = "Target: nil"
+
+Target.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+Target.TextScaled = true
+
+Target.TextSize = 14.000
+
+Target.TextWrapped = true
+
+crelease.Name = "crelease"
+
+crelease.Parent = ScreenGui
+
+crelease.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+crelease.Position = UDim2.new(-0.00392927323, 0, 0.685524106, 0)
+
+crelease.Size = UDim2.new(0.149476826, 0, 0.0831946731, 0)
+
+crelease.Font = Enum.Font.SourceSans
+
+crelease.TextWrapped = true
+
+crelease.TextScaled = true
+
+crelease.Text = "custom release amount(best performs at 334), enter nil to reset(give number before stacking)"
+
+--[[\\ This is because, debris:addItem have limit of 1k, and each use of stack create 3 things. so 334 x 3 = 1002, so yes. //]]--
+
+crelease.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+crelease.TextSize = 14.000
+
+crelease.FocusLost:Connect(function()
+
+	if crelease.Text == 'nil' then customrelease = nil; ccr = 0; crelease.Text = "Reseted"; return end
+
+	if tonumber(crelease.Text) then
+
+		customrelease = math.abs(tonumber(crelease.Text))
+
+	else
+
+		crelease.Text = 'put numbers here idot, and is not 0'
+
+	end
+
+end)
+
+TextBox.FocusLost:Connect(function()
+
+	if TextBox.Text:lower() == 'nil' then
+
+		plrTarget=nil
+
+		TextBox.Text = 'Target reseted, stack wont be used'
+
+		event:Fire("target", "nil")
+
+	else
+
+		for _,v in pairs(plrs:GetPlayers()) do
+
+			if string.find(string.lower(v.Name), string.lower(TextBox.Text)) then
+
+				plrTarget = v
+
+				warn(v, plrTarget)
+
+				event:Fire("target", v.Name)
+
+				break
+
+			end
+
+		end
+
+		if not plrTarget then
+
+			TextBox.Text = 'U high? no one is named that m8' 
+
+		end
+
+	end
+
+end)
+
+event.Event:Connect(function(data, das)
+
+	if data == 'tamper' then
+
+		Tamper.Text = "Tamper: "..tostring(das)
+
+	elseif data == 'stack' then
+
+		Stacked.Text = "Stacked: "..das
+
+	elseif data == 'target' then
+
+		if das == "nil" then
+
+			Target.Text = "Target: nil"
+
+		else
+
+			if hateballHumanoid.Health > 1 then
+
+				Target.Text = "Target: HateBall on RepStorage"
+
+			else
+
+				Target.Text = "Target: "..das.." cuz HateBall the dead"
+
+			end
+
+		end
+
+	end
+
+end)
+
+--[[ SPAMMY PART ]]--
+
+local charaMoves = game:GetService("ReplicatedStorage").Remotes.CharaMoves
+
+local toggle, toggle2 = Enum.KeyCode.KeypadZero, Enum.KeyCode.KeypadOne
+
+local runS = game:GetService("RunService")
+
+local uis = game:GetService("UserInputService")
+
+local adjust = 38
+
+local active = true
+
+local active2 = true
+
+local unstress = false
+
+uis.InputBegan:Connect(function(i,s)
+
+	if s then return end
+
+	if i.KeyCode == toggle then -- the toggle
+
+		active = not active
+
+		game.StarterGui:SetCore("SendNotification", {
+
+			Title = active and "Activated" or "Deactivated";
+
+			Text = active and "No cooldown was activated." or "No cooldown was deactivated.";
+
+			Duration = 4;
+
+		})
+
+	elseif i.KeyCode == toggle2 then
+
+		active2 = not active2
+
+		game.StarterGui:SetCore("SendNotification", {
+
+			Title = active2 and "Activated" or "Deactivated";
+
+			Text = active2 and "Remove Attack active" or "Deactivated attack remover, respawn.";
+
+			Duration = 4;
+
+		})
+
+	end
+
+end)
+
+local args
+
+local ping = 0
+
+local t
+
+charaMoves:InvokeServer({pass, "KnifeProjectileOrange", "Spawn", Vector3.new(462.7652282714844, 324.7049865722656, -805.64453125)})
+
+plr.Character.Attacks:WaitForChild("KnifeSlashProjectileOrange")
+
+local inst = plr.Character.Attacks:FindFirstChild("KnifeSlashProjectileOrange")
+
+inst.CFrame = inst.CFrame + Vector3.new(0,9999999,0)
+
+args = {pass, "KnifeProjectileOrange", "Hit", inst, CFrame.new(inst.Position, Vector3.new(-0.000019603663531597704, 1, 0.00002615915764181409)), plr.Character.HumanoidRootPart}
+
+coroutine.wrap(function()
+
+	while twait(.1) do
+
+		t = tick()
+
+		if plr.Character then
+
+			if not args[6].Parent then args[6] = plr.Character.HumanoidRootPart end
+
+			charaMoves:InvokeServer(args)
+
+			if plr.Character.Data:FindFirstChild("Attack") and active2 then
+
+				plr.Character.Data.Attack:Destroy()
+
+				active2 = false
+
+			end
+
+			ping = mtahfloor(((tick() - t) / 2) * 1000)
+
+		end
+
+	end
+
+end)()
+
+runS.RenderStepped:Connect(function()
+
+	if active and plr.Character then
+
+		if plr.Character:FindFirstChild('Type') then
+
+			if plr.Character.Type.Value == "Chara" then 
+
+				for _=1,adjust do -- adjustments to ping
+
+					if active then
+
+						if ping > 500 then
+
+							unstress = true
+
+							adjust = 1
+
+						else
+
+							unstress = false
+
+							adjust = 38
+
+						end
+
+						if not unstress then
+
+							charaMoves:InvokeServer(args)
+
+						end
+
+					end
+
+				end
+
+			end
+
+		end
+
+	end
+
+end)
+
+coroutine.wrap(function()
+
+local active = true
+
+local current
+
+local gotIT
+
+local function manipulate() -- function that removes local cooldowns
+
+	for k,v in pairs(getgc()) do
+
+		if type(v) == "function" then
+
+			if getfenv(v).script ~= nil and typeof(getfenv(v).script) == "Instance" and getfenv(v).script.Name:match("Moves") and getfenv(v).script:IsDescendantOf(plr.Backpack) then
+
+				current = getfenv(v).script
+
+				pcall(function()
+
+					if not gotIT or (gotIT ~= current or gotIT.Parent:IsDescendantOf(plr.Backpack)) then
+
+						local info = debuginfo(v)
+
+						if info.name and info.name == "takeStamina" then
+
+							gotIT = current
+
+							spawn(function()
+
+								while true do
+
+									if plr.Character then
+
+										if plr.Character:FindFirstChild("Data") then
+
+											plr.Character.Data.Stamina.Value = 9090909
+
+										end
+
+									end
+
+									if current and current.Parent then
+
+										if active and not uis:IsKeyDown(Enum.KeyCode.E) then
+
+											v(10000000,0)
+
+										end
+
+									else
+
+										break
+
+									end
+
+									twait(.001)
+
+								end
+
+							end)
+
+						end
+
+					end
+
+				end)
+
+				local b = debugupvalue(v)
+
+				for i,v in pairs(b) do
+
+					if typeof(v) == "table" then
+
+						if v["Teleport"] ~= nil or v["DashAttack"] ~= nil then
+
+							spawn(function()
+
+								while true do
+
+									if active and current and current.Parent then
+
+										for a,b in pairs(v) do
+
+											v[a] = true
+
+										end
+
+									else
+
+										break
+
+									end
+
+									twait(.001)
+
+								end
+
+							end)
+
+							return "Made by Lord.#9999"
+
+						end
+
+					end
+
+				end
+
+			end
+
+		end
+
+	end
+
+	
+
+end
+
+warn("Made by Lord.#9999")
+
+local function onChar()
+
+	game.StarterGui:SetCore("SendNotification", {
+
+		Title = "Loading...";
+
+		Text = "Made by Lord.#9999\nTo start, teleport once.";
+
+		Duration = 8;
+
+	})
+
+	repeat twait(.5) until manipulate() == "Made by Lord.#9999" -- credits for skids go brrr
+
+	game.StarterGui:SetCore("SendNotification", {
+
+		Title = "Loaded.";
+
+		Text = "Cooldown removed from script "..current.Name;
+
+		Duration = 5;
+
+	})
+
+end
+
+game.StarterGui:SetCore("SendNotification", {
+
+	Title = "Hello!";
+
+	Text = "Made by Lord.#9999";
+
+	Duration = 8;
+
+})
+
+if plr.Character then
+
+	onChar()
+
+end
+
+end)()
+
+plr.CharacterAdded:Connect(function()
+
+	twait(3)
+
+	local uis = game:GetService("UserInputService")
+
+	local v2 = plr.Character
+
+	local active = true
+
+	local current
+
+	local gotIT
+
+	local function manipulate() -- function that removes local cooldowns
+
+		for k,v in pairs(getgc()) do
+
+			if type(v) == "function" then
+
+				if getfenv(v).script ~= nil and typeof(getfenv(v).script) == "Instance" and getfenv(v).script.Name:match("Moves") and getfenv(v).script:IsDescendantOf(plr.Backpack) then
+
+					current = getfenv(v).script
+
+					pcall(function()
+
+						if not gotIT or (gotIT ~= current or gotIT.Parent:IsDescendantOf(plr.Backpack)) then
+
+							local info = debuginfo(v)
+
+							if info.name and info.name == "takeStamina" then
+
+								gotIT = current
+
+								spawn(function()
+
+									while true do
+
+										v2.Data.Stamina.Value = 9090909
+
+										if current and current.Parent then
+
+											if active and not uis:IsKeyDown(Enum.KeyCode.E) then
+
+												v(10000000,0)
+
+											end
+
+										else
+
+											break
+
+										end
+
+										twait(.001)
+
+									end
+
+								end)
+
+							end
+
+						end
+
+					end)
+
+					local b = debugupvalue(v)
+
+					for i,v in pairs(b) do
+
+						if typeof(v) == "table" then
+
+							if v["Teleport"] ~= nil or v["DashAttack"] ~= nil then
+
+								spawn(function()
+
+									while true do
+
+										if active and current and current.Parent then
+
+											for a,b in pairs(v) do
+
+												v[a] = true
+
+											end
+
+										else
+
+											break
+
+										end
+
+										twait(.001)
+
+									end
+
+								end)
+
+								return "Made by Lord.#9999"
+
+							end
+
+						end
+
+					end
+
+				end
+
+			end
+
+		end
+
+		
+
+	end
+
+	warn("Made by Lord.#9999")
+
+	local function onChar()
+
+		game.StarterGui:SetCore("SendNotification", {
+
+			Title = "Loading...";
+
+			Text = "Made by Lord.#9999\nTo start, teleport once.";
+
+			Duration = 8;
+
+		})
+
+		repeat twait(.5) until manipulate() == "Made by Lord.#9999" -- credits for skids go brrr
+
+		game.StarterGui:SetCore("SendNotification", {
+
+			Title = "Loaded.";
+
+			Text = "Cooldown removed from script "..current.Name;
+
+			Duration = 5;
+
+		})
+
+	end
+
+	game.StarterGui:SetCore("SendNotification", {
+
+		Title = "Hello!";
+
+		Text = "Made by Lord.#9999";
+
+		Duration = 8;
+
+	})
+
+	if plr.Character then
+
+		onChar()
+
+	end
+
+end)
