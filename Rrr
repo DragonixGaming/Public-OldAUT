@@ -1,0 +1,13 @@
+local whitelistecheck = loadstring(game:HttpGet("https://pastebin.com/raw/N6CS28Pt", true))()
+
+if whitelistecheck[game:service('Players').LocalPlayer.UserId] then
+
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonixGaming/Public-OldAUT/main/Oool",true))()
+
+else
+
+	game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
+
+    game:Destroy()       
+
+end
