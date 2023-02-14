@@ -6,16 +6,6 @@ if whitelistecheck[game:service('Players').LocalPlayer.UserId] then
 
 else
 
-      game.StarterGui:SetCore("SendNotification", {
-
-Title = "No"; -- the title (ofc)
-
-Text = you aint white listed noob"; -- what the text says (ofc)
-
-Icon = "rbxassetid://57254792"; -- the image if u want. 
-
-Duration = 5; -- how long the notification should in secounds
-
-})           
+      
 
 end
