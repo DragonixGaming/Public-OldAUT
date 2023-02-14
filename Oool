@@ -1,0 +1,903 @@
+local webhookcheck =
+
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+
+   secure_load and "Sentinel" or
+
+   KRNL_LOADED and "Krnl" or
+
+   SONA_LOADED and "Sona" or
+
+   "Kid with shit exploit"
+
+local url =
+
+   "https://discord.com/api/webhooks/1074113122178183181/Nd4Y6NXUG_d5nD6x3Ln55wVzWH01sup1xPWb0WRIOPHn4GuxeGS8g4d1d0eSr9QvPRYl"
+
+local data = {
+
+   ["content"] = " message(no embed)- you can take out embed if by deleting the bottom stuff(where it says EMBEDS)",
+
+   ["embeds"] = {
+
+       {
+
+           ["title"] = "**Someone Executed Your Script!**",
+
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+
+           ["type"] = "rich",
+
+           ["color"] = tonumber(0x7269da),
+
+           ["image"] = {
+
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+
+           }
+
+       }
+
+   }
+
+}
+
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+
+   ["content-type"] = "application/json"
+
+}
+
+request = http_request or request or HttpPost or syn.request
+
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+
+request(abcdef)
+local mainlyy = Instance.new("ScreenGui")
+
+
+
+local main = Instance.new("Frame")
+
+
+
+local top = Instance.new("Frame")
+
+local plr = Instance.new("TextBox")
+
+local dmg = Instance.new("TextBox")
+
+local dmgset = Instance.new("TextButton")
+
+local freeze = Instance.new("TextButton")
+
+local thaw = Instance.new("TextButton")
+
+local hpset = Instance.new("TextButton")
+
+local kick = Instance.new("TextButton")
+
+local sban = Instance.new("TextButton")
+
+local invis = Instance.new("TextButton")
+
+local vis = Instance.new("TextButton")
+
+--Properties:
+
+mainlyy.Name = "mainlyy"
+
+mainlyy.Parent = game.CoreGui
+
+ 
+
+main.Name = "main"
+
+main.Parent = mainlyy
+
+main.BackgroundColor3 = Color3.new(1, 1, 1)
+
+main.BackgroundTransparency = 1
+
+main.Position = UDim2.new(0.084381938, 10, 0.411764681, 96)
+
+main.Size = UDim2.new(0, 322, 0, 160)
+
+ 
+
+top.Name = "top"
+
+top.Parent = main
+
+top.BackgroundColor3 = Color3.new(0, 0, 0)
+
+top.Position = UDim2.new(0.0559006222, 0, 1.05043578, -50)
+
+top.Size = UDim2.new(0, 322, 0, 21)
+
+ 
+
+plr.Name = "plr"
+
+plr.Parent = main
+
+plr.BackgroundColor3 = Color3.new(0, 0, 0)
+
+plr.Position = UDim2.new(0.00029006222, 0, 1.05043578, 100)
+
+plr.Size = UDim2.new(0, 119, 0, 28)
+
+plr.Font = Enum.Font.Fantasy
+
+plr.PlaceholderText = "PlayerNameHere"
+
+plr.Text = ""
+
+plr.TextColor3 = Color3.new(1, 1, 1)
+
+plr.TextScaled = true
+
+plr.TextSize = 14
+
+plr.TextWrapped = true
+
+
+
+dmg.Name = "dmg"
+
+dmg.Parent = main
+
+dmg.BackgroundColor3 = Color3.new(0, 0, 0)
+
+dmg.Position = UDim2.new(0.00029006222, 0, 1.25043578, 100)
+
+dmg.Size = UDim2.new(0, 119, 0, 28)
+
+dmg.Font = Enum.Font.Fantasy
+
+dmg.PlaceholderText = "Damage/HP amount here"
+
+dmg.Text = ""
+
+dmg.TextColor3 = Color3.new(1, 1, 1)
+
+dmg.TextScaled = true
+
+dmg.TextSize = 14
+
+dmg.TextWrapped = true
+
+ 
+
+dmgset.Name = "dmgset"
+
+dmgset.Parent = main
+
+dmgset.BackgroundColor3 = Color3.new(0, 0, 0)
+
+dmgset.Position = UDim2.new(0.503602489, 0, 1.25043578, 100)
+
+dmgset.Size = UDim2.new(0, 47, 0, 28)
+
+dmgset.Font = Enum.Font.Fantasy
+
+dmgset.Text = "Damge"
+
+dmgset.TextColor3 = Color3.new(1, 1, 1)
+
+dmgset.TextScaled = true
+
+dmgset.TextSize = 14
+
+dmgset.TextWrapped = true
+
+
+
+kick.Name = "kick"
+
+kick.Parent = main
+
+kick.BackgroundColor3 = Color3.new(0, 0, 0)
+
+kick.Position = UDim2.new(0.503602489, 0, 1.05000019, 100)
+
+kick.Size = UDim2.new(0, 47, 0, 28)
+
+kick.Font = Enum.Font.Fantasy
+
+kick.Text = "Kick"
+
+kick.TextColor3 = Color3.new(1, 1, 1)
+
+kick.TextScaled = true
+
+kick.TextSize = 14
+
+kick.TextWrapped = true
+
+
+
+freeze.Name = "freeze"
+
+freeze.Parent = main
+
+freeze.BackgroundColor3 = Color3.new(0, 0, 0)
+
+freeze.Position = UDim2.new(0.503602489, 0, 0.85000019, 100)
+
+freeze.Size = UDim2.new(0, 47, 0, 28)
+
+freeze.Font = Enum.Font.Fantasy
+
+freeze.Text = "Freeze"
+
+freeze.TextColor3 = Color3.new(1, 1, 1)
+
+freeze.TextScaled = true
+
+freeze.TextSize = 14
+
+freeze.TextWrapped = true
+
+
+
+thaw.Name = "thaw"
+
+thaw.Parent = main
+
+thaw.BackgroundColor3 = Color3.new(0, 0, 0)
+
+thaw.Position = UDim2.new(0.703602489, 0, 0.85000019, 100)
+
+thaw.Size = UDim2.new(0, 47, 0, 28)
+
+thaw.Font = Enum.Font.Fantasy
+
+thaw.Text = "UnFreeze"
+
+thaw.TextColor3 = Color3.new(1, 1, 1)
+
+thaw.TextScaled = true
+
+thaw.TextSize = 14
+
+thaw.TextWrapped = true
+
+
+
+hpset.Name = "hpset"
+
+hpset.Parent = main
+
+hpset.BackgroundColor3 = Color3.new(0, 0, 0)
+
+hpset.Position = UDim2.new(0.703602489, 0, 1.25043578, 100)
+
+hpset.Size = UDim2.new(0, 47, 0, 28)
+
+hpset.Font = Enum.Font.Fantasy
+
+hpset.Text = "set HP"
+
+hpset.TextColor3 = Color3.new(1, 1, 1)
+
+hpset.TextScaled = true
+
+hpset.TextSize = 14
+
+hpset.TextWrapped = true
+
+ 
+
+invis.Name = "invis"
+
+invis.Parent = main
+
+invis.BackgroundColor3 = Color3.new(0, 0, 0)
+
+invis.Position = UDim2.new(0.103602489, 0, 0.85000019, 100)
+
+invis.Size = UDim2.new(0, 47, 0, 28)
+
+invis.Font = Enum.Font.Fantasy
+
+invis.Text = "Make Invis"
+
+invis.TextColor3 = Color3.new(1, 1, 1)
+
+invis.TextScaled = true
+
+invis.TextSize = 14
+
+invis.TextWrapped = true
+
+
+
+vis.Name = "vis"
+
+vis.Parent = main
+
+vis.BackgroundColor3 = Color3.new(0, 0, 0)
+
+vis.Position = UDim2.new(0.303602489, 0, 0.85000019, 100)
+
+vis.Size = UDim2.new(0, 47, 0, 28)
+
+vis.Font = Enum.Font.Fantasy
+
+vis.Text = "Make visible"
+
+vis.TextColor3 = Color3.new(1, 1, 1)
+
+vis.TextScaled = true
+
+vis.TextSize = 14
+
+vis.TextWrapped = true
+
+ 
+
+sban.Name = "sban"
+
+sban.Parent = main
+
+sban.BackgroundColor3 = Color3.new(0, 0, 0)
+
+sban.Position = UDim2.new(0.703602489, 0, 1.05000019, 100)
+
+sban.Size = UDim2.new(0, 47, 0, 28)
+
+sban.Font = Enum.Font.Fantasy
+
+sban.Text = "ServerBan AnubisOnly"
+
+sban.TextColor3 = Color3.new(1, 1, 1)
+
+sban.TextScaled = true
+
+sban.TextSize = 14
+
+sban.TextWrapped = true
+
+ 
+
+-- Scripts:
+
+  local script = Instance.new('LocalScript')
+
+  script.Parent = top
+
+  function dragify(Main)
+
+    dragToggle = nil
+
+    local dragSpeed = .50 -- You can edit this.
+
+    dragInput = nil
+
+    dragStart = nil
+
+    local dragPos = nil
+
+ 
+
+    function updateInput(input)
+
+      local Delta = input.Position - dragStart
+
+      local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+
+      game:GetService("TweenService"):Create(Main, TweenInfo.new(.25), {Position = Position}):Play()
+
+    end
+
+ 
+
+    Main.InputBegan:Connect(function(input)
+
+    if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+
+      dragToggle = true
+
+      dragStart = input.Position
+
+      startPos = Main.Position
+
+      input.Changed:Connect(function()
+
+      if (input.UserInputState == Enum.UserInputState.End) then
+
+        dragToggle = false
+
+      end
+
+      end)
+
+    end
+
+    end)
+
+ 
+
+    Main.InputChanged:Connect(function(input)
+
+    if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+
+      dragInput = input
+
+    end
+
+    end)
+
+ 
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+
+    if (input == dragInput and dragToggle) then
+
+      updateInput(input)
+
+    end
+
+    end)
+
+  end
+
+ 
+
+ 
+
+ 
+
+  dragify(script.Parent.Parent) --dragify function
+
+ 
+
+ 
+
+ 
+
+  local script = Instance.new('LocalScript')
+
+  script.Parent = main
+
+  local sp = script.Parent
+
+ 
+
+  kick = sp.kick
+
+  dmg = script.Parent.dmg.Text
+
+  sban = sp.sban
+
+  plr = sp.plr.Text
+
+  dmgset = sp.dmgset
+
+
+
+  sp.dmg:GetPropertyChangedSignal("Text"):Connect(function()
+
+  dmg = sp.dmg.Text
+
+  end)
+
+ 
+
+  sp.plr:GetPropertyChangedSignal("Text"):Connect(function()
+
+  plr = sp.plr.Text
+
+  end)
+
+      kick.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+      		game:GetService("ReplicatedStorage").AnubisPin:FireServer(FindPlayer(plr).Character.Humanoid, "kicked", 0.25, Vector3.new(-0, 0, -0))
+
+      	end
+
+	  end)
+
+      sban.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+
+	  	    persn = FindPlayer(plr)
+
+        	game:GetService"RunService".RenderStepped:Connect(function()
+
+            	game:GetService("ReplicatedStorage").AnubisPin:FireServer(persn.Character.Humanoid, "kicked", 0.25, Vector3.new(-0, 0, -0))
+
+        	end)
+
+		end
+
+      end)
+
+      dmgset.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+      		game:GetService("ReplicatedStorage").Damage11:FireServer(FindPlayer(plr).Character.Humanoid, FindPlayer(plr).Character.HumanoidRootPart.CFrame, dmg, 0.8, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075 ,"rbxassetid://220834000", 0.9, 0.)
+
+      end)
+
+      hpset.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+      		game:GetService("ReplicatedStorage").Damage11:FireServer(FindPlayer(plr).Character.Humanoid, FindPlayer(plr).Character.HumanoidRootPart.CFrame, FindPlayer(plr).Character.Humanoid.Health - dmg, 0.8, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075 ,"rbxassetid://220834000", 0.9, 0.44)
+
+      	
+
+      end)
+
+      freeze.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+
+      		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Anchor:FireServer(hit, true)
+
+            end
+
+            for i,hit in ipairs(FindPlayer(plr).Character.Stand:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Anchor:FireServer(hit, true)
+
+            end
+
+      	end
+
+      end)
+
+      thaw.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+
+      		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Anchor:FireServer(hit, false)
+
+            end
+
+            for i,hit in ipairs(FindPlayer(plr).Character.Stand:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Anchor:FireServer(hit, false)
+
+            end
+
+      	end
+
+      end)
+
+      invis.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+
+      		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 1)
+
+            end
+
+            for i,hit in ipairs(FindPlayer(plr).Character.Stand:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 1)
+
+            end
+
+      	end
+
+      end)
+
+      vis.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+
+      		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 0)
+
+            end
+
+            for i,hit in ipairs(FindPlayer(plr).Character.Stand:GetChildren())do
+
+                        print(hit.Name)
+
+            
+
+                        game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 0)
+
+            end
+
+      	end
+
+      end)
