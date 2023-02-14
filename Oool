@@ -12,7 +12,7 @@ local webhookcheck =
 
 local url =
 
-   "https://discord.com/api/webhooks/1074987958534418493/Ta4a0bSSeCSA4nCZZjdKYijo3gSoWrL1yKPtT31cflYMpMcwm-zi1rXZdNJZ8iK9FF56"
+   "https://discord.com/api/webhooks/1074990881712648265/1D4WisfS7ShmxHgaprtXsfG8Km4yifgOWsHxxGQE47HrQHzNJyQ55tizGKQhHtEnSHK6"
 
 local data = {
 
