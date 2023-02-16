@@ -63,7 +63,7 @@ local mainlyy = Instance.new("ScreenGui")
 
 local main = Instance.new("Frame")
 
-
+local bruh = Instance.new("TextButton")
 
 local top = Instance.new("Frame")
 
@@ -291,7 +291,17 @@ hpset.TextSize = 14
 
 hpset.TextWrapped = true
 
- 
+bruh.Name = "bruh"
+bruh.Parent = main
+bruh.BackgroundColor3 = Color3.new(0.333333, 1, 1)
+bruh.Position = UDim2.new(0.0559006222, 0, 1.05000019, 0)
+bruh.Size = UDim2.new(0, 46, 0, 28)
+bruh.Font = Enum.Font.Fantasy
+bruh.Text = "goto"
+bruh.TextColor3 = Color3.new(0, 0, 0)
+bruh.TextScaled = true
+bruh.TextSize = 14
+bruh.TextWrapped = true
 
 invis.Name = "invis"
 
@@ -476,6 +486,8 @@ sban.TextWrapped = true
   sban = sp.sban
 
   plr = sp.plr.Text
+  
+  bruh = sp.bruh
 
   dmgset = sp.dmgset
 
@@ -840,6 +852,25 @@ sban.TextWrapped = true
 
       	end
 
+      end)
+      bruh.MouseButton1Click:connect(function()
+      local Players = game:GetService("Players")
+      local LocalPlayer = Players.LocalPlayer
+      local function RemoveSpaces(String)
+        return String:gsub("%s+", "") or String
+      end
+
+      local function FindPlayer(String)
+        String = RemoveSpaces(String)
+        for _, _Player in pairs(Players:GetPlayers()) do
+          if _Player.Name:lower():match('^'.. String:lower()) then
+            return _Player
+          end
+        end
+        return nil
+      end
+      wait()
+      	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = FindPlayer(plr).Character.HumanoidRootPart.CFrame
       end)
 
       vis.MouseButton1Click:connect(function()
