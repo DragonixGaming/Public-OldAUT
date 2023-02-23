@@ -58,6 +58,8 @@ request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 
 request(abcdef)
+
+--[
 local mainlyy = Instance.new("ScreenGui")
 
 
@@ -933,3 +935,4 @@ sban.TextWrapped = true
       	end
 
       end)
+]--
