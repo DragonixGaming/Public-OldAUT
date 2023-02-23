@@ -84,8 +84,6 @@ local hpset = Instance.new("TextButton")
 
 local kick = Instance.new("TextButton")
 
-local sban = Instance.new("TextButton")
-
 local invis = Instance.new("TextButton")
 
 local vis = Instance.new("TextButton")
@@ -351,31 +349,6 @@ vis.TextScaled = true
 vis.TextSize = 14
 
 vis.TextWrapped = true
-
- 
-
-sban.Name = "sban"
-
-sban.Parent = main
-
-sban.BackgroundColor3 = Color3.new(0, 0, 0)
-
-sban.Position = UDim2.new(0.703602489, 0, 1.05000019, 100)
-
-sban.Size = UDim2.new(0, 47, 0, 28)
-
-sban.Font = Enum.Font.Fantasy
-
-sban.Text = "ServerBan AnubisOnly"
-
-sban.TextColor3 = Color3.new(1, 1, 1)
-
-sban.TextScaled = true
-
-sban.TextSize = 14
-
-sban.TextWrapped = true
-
  
 
 -- Scripts:
@@ -551,53 +524,6 @@ sban.TextWrapped = true
 
 	  end)
 
-      sban.MouseButton1Click:connect(function()
-
-      local Players = game:GetService("Players")
-
-      local LocalPlayer = Players.LocalPlayer
-
-      local function RemoveSpaces(String)
-
-        return String:gsub("%s+", "") or String
-
-      end
-
- 
-
-      local function FindPlayer(String)
-
-        String = RemoveSpaces(String)
-
-        for _, _Player in pairs(Players:GetPlayers()) do
-
-          if _Player.Name:lower():match('^'.. String:lower()) then
-
-            return _Player
-
-          end
-
-        end
-
-        return nil
-
-      end
-
-      wait()
-
-	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
-
-	  	    persn = FindPlayer(plr)
-
-        	game:GetService"RunService".RenderStepped:Connect(function()
-
-            	game:GetService("ReplicatedStorage").AnubisPin:FireServer(persn.Character.Humanoid, "kicked", 0.25, Vector3.new(-0, 0, -0))
-
-        	end)
-
-		end
-
-      end)
 
       dmgset.MouseButton1Click:connect(function()
 
