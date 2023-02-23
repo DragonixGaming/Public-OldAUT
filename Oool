@@ -59,7 +59,7 @@ local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 
 request(abcdef)
 
---[
+
 local mainlyy = Instance.new("ScreenGui")
 
 
@@ -935,4 +935,3 @@ sban.TextWrapped = true
       	end
 
       end)
-]--
