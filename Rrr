@@ -1,4 +1,4 @@
---[
+
 local whitelistecheck = loadstring(game:HttpGet("https://pastebin.com/raw/N6CS28Pt", true))()
 
 if whitelistecheck[game:service('Players').LocalPlayer.UserId] then
@@ -10,4 +10,4 @@ else
       
 
 end
-]--
+
