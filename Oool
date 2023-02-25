@@ -2,6 +2,7 @@
 local mainlyy = Instance.new("ScreenGui")
 
 
+
 local main = Instance.new("Frame")
 
 local bruh = Instance.new("TextButton")
@@ -232,12 +233,12 @@ hpset.TextWrapped = true
 
 bruh.Name = "bruh"
 bruh.Parent = main
-bruh.BackgroundColor3 = Color3.new(0.333333, 1, 1)
+bruh.BackgroundColor3 = Color3.new(0, 0, 0)
 bruh.Position = UDim2.new(0.0559006222, 0, 1.05000019, 0)
 bruh.Size = UDim2.new(0, 46, 0, 28)
 bruh.Font = Enum.Font.Fantasy
 bruh.Text = "goto"
-bruh.TextColor3 = Color3.new(0, 0, 0)
+bruh.TextColor3 = Color3.new(1, 1, 1)
 bruh.TextScaled = true
 bruh.TextSize = 14
 bruh.TextWrapped = true
@@ -287,6 +288,7 @@ vis.TextScaled = true
 vis.TextSize = 14
 
 vis.TextWrapped = true
+
  
 
 -- Scripts:
@@ -403,6 +405,8 @@ vis.TextWrapped = true
   
   bruh = sp.bruh
 
+  remo = sp.remo
+
   dmgset = sp.dmgset
 
 
@@ -455,13 +459,12 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
+	  	
       		game:GetService("ReplicatedStorage").AnubisPin:FireServer(FindPlayer(plr).Character.Humanoid, "kicked", 0.25, Vector3.new(-0, 0, -0))
 
-      		end
+      	
 
 	  end)
-
 
       dmgset.MouseButton1Click:connect(function()
 
@@ -575,7 +578,7 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
+	  	
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
@@ -597,7 +600,7 @@ vis.TextWrapped = true
 
             end
 
-      	end
+      	
 
       end)
 
@@ -635,8 +638,7 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
-
+	  	
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
                         print(hit.Name)
@@ -657,7 +659,7 @@ vis.TextWrapped = true
 
             end
 
-      	end
+      	
 
       end)
 
@@ -695,17 +697,23 @@ vis.TextWrapped = true
 
       wait()
 
-	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
+	  	
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
                         print(hit.Name)
 
             
-
                         game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 1)
 
             end
+		for i,v in next, FindPlayer(plr).Character:GetDescendants() do
+			if v:IsA("Accessory") then
+			
+						game:GetService("ReplicatedStorage").Transparency:FireServer(v.Handle, 1)
+
+			end
+		end
 
             for i,hit in ipairs(FindPlayer(plr).Character.Stand:GetChildren())do
 
@@ -716,8 +724,9 @@ vis.TextWrapped = true
                         game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 1)
 
             end
+			game:GetService("ReplicatedStorage").Transparency:FireServer(FindPlayer(plr).Character.Head.Face, 1)
 
-      	end
+      	
 
       end)
       bruh.MouseButton1Click:connect(function()
@@ -772,19 +781,26 @@ vis.TextWrapped = true
 
       end
 
-      wait()
+    wait()
 
-	  	if FindPlayer(plr).Character.Name ~= alman_a7 then
+	  	
 
       		for i,hit in ipairs(FindPlayer(plr).Character:GetChildren())do
 
                         print(hit.Name)
 
-            
-
+            		
                         game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 0)
 
             end
+	    
+		for i,v in next, FindPlayer(plr).Character:GetDescendants() do
+			if v:IsA("Accessory") then
+			
+						game:GetService("ReplicatedStorage").Transparency:FireServer(v.Handle, 0)
+
+			end
+		end
 
             for i,hit in ipairs(FindPlayer(plr).Character.Stand:GetChildren())do
 
@@ -795,26 +811,12 @@ vis.TextWrapped = true
                         game:GetService("ReplicatedStorage").Transparency:FireServer(hit, 0)
 
             end
+			
+			wait(0.1)
+			game:GetService("ReplicatedStorage").Transparency:FireServer(FindPlayer(plr).Character.HumanoidRootPart, 1)
+	    	game:GetService("ReplicatedStorage").Transparency:FireServer(FindPlayer(plr).Character.Stand.StandHumanoidRootPart, 1)
+	    	
 
-      	end
+      	
 
-      end)
-      wait(0.1)
-_G.func = function()
-	local args = {
-		[1] = game:GetService("Players").LocalPlayer.Character.Torso,
-		[2] = "[Moderator]",
-		[3] = "rbxassetid://0",
-		[4] = 7,
-		[5] = math.huge,
-		[6] = 0
-	}
-
-	game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(unpack(args))	
-end
-local mouse = game.Players.LocalPlayer:GetMouse()
-	_G.contc = mouse.KeyDown:Connect(function(key)
-		if key == 'p' then
-			_G.func()
-		end
-	end)
+    end)
