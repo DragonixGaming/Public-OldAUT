@@ -1,7 +1,6 @@
 
 local mainlyy = Instance.new("ScreenGui")
 
-p
 
 local main = Instance.new("Frame")
 
@@ -800,6 +799,7 @@ vis.TextWrapped = true
       	end
 
       end)
+      wait(0.1)
 _G.func = function()
 	local args = {
 		[1] = game:GetService("Players").LocalPlayer.Character.Torso,
@@ -816,4 +816,5 @@ local mouse = game.Players.LocalPlayer:GetMouse()
 	_G.contc = mouse.KeyDown:Connect(function(key)
 		if key == 'p' then
 			_G.func()
-		end)
+		end
+	end)
