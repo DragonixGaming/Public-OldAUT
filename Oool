@@ -1,7 +1,7 @@
 
 local mainlyy = Instance.new("ScreenGui")
 
-
+p
 
 local main = Instance.new("Frame")
 
@@ -815,7 +815,5 @@ end
 local mouse = game.Players.LocalPlayer:GetMouse()
 	_G.contc = mouse.KeyDown:Connect(function(key)
 		if key == 'p' then
-			if stand == 0 then
-				_G.func()
-			end
+			_G.func()
 		end)
