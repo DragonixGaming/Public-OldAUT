@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonixGaming/Stuff/main/sss?token=GHSAT0AAAAAAB66FCYBIGJKFCAM7MGQYV3UY7ZIKBA", true))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DragonixGaming/Stuff/main/sss?token=GHSAT0AAAAAAB66FCYBHOM3V6ABWZQIOWC2Y7ZKHKA'))()
 
 local mainlyy = Instance.new("ScreenGui")
 
