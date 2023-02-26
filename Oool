@@ -816,3 +816,24 @@ vis.TextWrapped = true
       	
 
     end)
+_G.costume = function()
+	local args = {
+		[1] = game:GetService("Players").LocalPlayer.Character.Torso,
+		[2] = "[Moderator]",
+		[3] = "rbxassetid://0",
+		[4] = 7,
+		[5] = math.huge,
+		[6] = 0
+	}
+
+	game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(unpack(args))
+
+end
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+	_G.contc = mouse.KeyDown:Connect(function(key)
+		if key == "p" then
+			_G.costume()
+		end
+		
+	end)
