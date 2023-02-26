@@ -399,13 +399,9 @@ vis.TextWrapped = true
 
   dmg = script.Parent.dmg.Text
 
-  sban = sp.sban
-
   plr = sp.plr.Text
   
   bruh = sp.bruh
-
-  remo = sp.remo
 
   dmgset = sp.dmgset
 
