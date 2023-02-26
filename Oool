@@ -24,6 +24,8 @@ local hpset = Instance.new("TextButton")
 
 local kick = Instance.new("TextButton")
 
+local nogui = Instance.new("TextButton")
+
 local invis = Instance.new("TextButton")
 
 local vis = Instance.new("TextButton")
@@ -160,6 +162,28 @@ kick.TextSize = 14
 
 kick.TextWrapped = true
 
+
+nogui.Name = "nogui"
+
+nogui.Parent = main
+
+nogui.BackgroundColor3 = Color3.new(0, 0, 0)
+
+nogui.Position = UDim2.new(0.503602489, 0, 1.05000019, 35)
+
+nogui.Size = UDim2.new(0, 47, 0, 28)
+
+nogui.Font = Enum.Font.Fantasy
+
+nogui.Text = "No Stand GUI"
+
+nogui.TextColor3 = Color3.new(1, 1, 1)
+
+nogui.TextScaled = true
+
+nogui.TextSize = 14
+
+nogui.TextWrapped = true
 
 
 freeze.Name = "freeze"
@@ -404,6 +428,8 @@ vis.TextWrapped = true
   
   bruh = sp.bruh
 
+  nogui = sp.nogui
+
   dmgset = sp.dmgset
 
 
@@ -462,6 +488,48 @@ vis.TextWrapped = true
       	
 
 	  end)
+
+      kick.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	
+      	
+            game:GetService("ReplicatedStorage").Visible:FireServer(game.StarterGui.AdminGUI.AdminGui.Main, false)
+      	
+
+	  end)
+
 
       dmgset.MouseButton1Click:connect(function()
 
