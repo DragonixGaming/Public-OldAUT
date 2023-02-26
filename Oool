@@ -525,7 +525,8 @@ vis.TextWrapped = true
 
 	  	
       	
-            game:GetService("ReplicatedStorage").Visible:FireServer(game.StarterGui.AdminGUI.AdminGui.Main, false)
+            game:GetService("ReplicatedStorage").Visible:FireServer(game.StarterGui.AdminGUI.Main, false)
+            game:GetService("ReplicatedStorage").Visible:FireServer(game.StarterGui.AdminGUI.AdminGui, false)
       	
 
 	  end)
