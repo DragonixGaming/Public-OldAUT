@@ -489,7 +489,7 @@ vis.TextWrapped = true
 
 	  end)
 
-      kick.MouseButton1Click:connect(function()
+      nogui.MouseButton1Click:connect(function()
 
       local Players = game:GetService("Players")
 
