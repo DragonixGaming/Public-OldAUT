@@ -1,4 +1,5 @@
 loadstring(game:HttpGet('https://pastebin.com/raw/AjnUSM7j'))()
+game.Players.LocalPlayer.PlayerGui.AdminGUI.Main.Visible = true
 local mainlyy = Instance.new("ScreenGui")
 
 
