@@ -33,6 +33,8 @@ local invis = Instance.new("TextButton")
 
 local vis = Instance.new("TextButton")
 
+local fix = Instance.new("TextButton")
+
 --Properties:
 
 mainlyy.Name = "mainlyy"
@@ -235,7 +237,17 @@ thaw.TextSize = 14
 
 thaw.TextWrapped = true
 
-
+fix.Name = "fix"
+fix.Parent = main
+fix.BackgroundColor3 = Color3.new(0.333333, 1, 1)
+fix.Position = UDim2.new(0.788819849, 0, 1.05000019, 0)
+fix.Size = UDim2.new(0, 32, 0, 28)
+fix.Font = Enum.Font.Fantasy
+fix.Text = "un stuck"
+fix.TextColor3 = Color3.new(0, 0, 0)
+fix.TextScaled = true
+fix.TextSize = 14
+fix.TextWrapped = true
 
 hpset.Name = "hpset"
 
@@ -504,6 +516,35 @@ vis.TextWrapped = true
       	
 
 	  end)
+	  
+
+
+	fix.MouseButton1Click:connect(function()
+      for i,v in pairs(game.Players:GetChildren()) do
+        v.Character.HumanoidRootPart.Anchored = false
+      end
+      end)
+
+
+      bruh.MouseButton1Click:connect(function()
+      local Players = game:GetService("Players")
+      local LocalPlayer = Players.LocalPlayer
+      local function RemoveSpaces(String)
+        return String:gsub("%s+", "") or String
+      end
+
+      local function FindPlayer(String)
+        String = RemoveSpaces(String)
+        for _, _Player in pairs(Players:GetPlayers()) do
+          if _Player.Name:lower():match('^'.. String:lower()) then
+            return _Player
+          end
+        end
+        return nil
+      end
+      wait()
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = FindPlayer(plr).Character.HumanoidRootPart.CFrame
+      end)
 
       nogui.MouseButton1Click:connect(function()
 
@@ -547,7 +588,28 @@ vis.TextWrapped = true
 
 	  end)
 
+      cbring.MouseButton1Click:connect(function()
+      local Players = game:GetService("Players")
+      local LocalPlayer = Players.LocalPlayer
+      local function RemoveSpaces(String)
+        return String:gsub("%s+", "") or String
+      end
 
+      local function FindPlayer(String)
+        String = RemoveSpaces(String)
+        for _, _Player in pairs(Players:GetPlayers()) do
+          if _Player.Name:lower():match('^'.. String:lower()) then
+            return _Player
+          end
+        end
+        return nil
+      end
+      wait()
+      FindPlayer(plr).Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 2
+      FindPlayer(plr).Character.HumanoidRootPart.Anchored = true
+      end)
+      
+      
       dmgset.MouseButton1Click:connect(function()
 
       local Players = game:GetService("Players")
