@@ -9,6 +9,8 @@ local main = Instance.new("Frame")
 
 local bruh = Instance.new("TextButton")
 
+local bring = Instance.new("TextButton")
+
 local cbring = Instance.new("TextButton")
 
 local top = Instance.new("Frame")
@@ -213,6 +215,18 @@ freeze.TextSize = 14
 
 freeze.TextWrapped = true
 
+
+bring.Name = "bring"
+bring.Parent = main
+bring.BackgroundColor3 = Color3.new(0, 0, 0)
+bring.Position = UDim2.new(0.703602489, 0, 1.05000019, 35)
+bring.Size = UDim2.new(0, 47, 0, 28)
+bring.Font = Enum.Font.Fantasy
+bring.Text = "Bring"
+bring.TextColor3 = Color3.new(1, 1, 1)
+bring.TextScaled = true
+bring.TextSize = 14
+bring.TextWrapped = true
 
 
 thaw.Name = "thaw"
@@ -964,6 +978,47 @@ vis.TextWrapped = true
       	
 
     end)
+    bring.MouseButton1Click:connect(function()
+
+      local Players = game:GetService("Players")
+
+      local LocalPlayer = Players.LocalPlayer
+
+      local function RemoveSpaces(String)
+
+        return String:gsub("%s+", "") or String
+
+      end
+
+ 
+
+      local function FindPlayer(String)
+
+        String = RemoveSpaces(String)
+
+        for _, _Player in pairs(Players:GetPlayers()) do
+
+          if _Player.Name:lower():match('^'.. String:lower()) then
+
+            return _Player
+
+          end
+
+        end
+
+        return nil
+
+      end
+
+      wait()
+
+	  	
+      		game:GetService("ReplicatedStorage"):WaitForChild("VampireFreeze"):FireServer(FindPlayer(plr).Character.Humanoid, 0.75, Vector3.new(0, 0, 0))
+
+      	
+
+	  end)
+    
 _G.costume = function()
 	local args = {
 		[1] = game:GetService("Players").LocalPlayer.Character.Torso,
