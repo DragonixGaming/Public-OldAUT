@@ -35,6 +35,8 @@ local invis = Instance.new("TextButton")
 
 local vis = Instance.new("TextButton")
 
+local openclose = Instance.new("TextButton")
+
 local fix = Instance.new("TextButton")
 
 --Properties:
@@ -262,6 +264,18 @@ fix.TextColor3 = Color3.new(1, 1, 1)
 fix.TextScaled = true
 fix.TextSize = 14
 fix.TextWrapped = true
+
+openclose.Name = "openclose"
+openclose.Parent = top
+openclose.BackgroundColor3 = Color3.new(0, 0, 0)
+openclose.Position = UDim2.new(0.6, 0, 0,0)
+openclose.Size = UDim2.new(0, 50, 0, 20)
+openclose.Font = Enum.Font.Fantasy
+openclose.Text = "-"
+openclose.TextColor3 = Color3.new(1, 1, 1)
+openclose.TextScaled = false
+openclose.TextSize = 20
+openclose.TextWrapped = true
 
 hpset.Name = "hpset"
 
@@ -820,6 +834,31 @@ vis.TextWrapped = true
       	
 
       end)
+      
+      local opened = true
+	openclose.MouseButton1Click:connect(function()
+		if opened == true then
+			opened = false
+			openclose.Text = "□"
+			for i,hit in ipairs(game.CoreGui.mainlyy.main:GetChildren())do
+				if hit ~= game.CoreGui.mainlyy.main.top then
+				
+					hit.Visible = false
+			
+				end
+			end
+		else
+			opened = true
+			openclose.Text = "-"
+			for i,hit in ipairs(game.CoreGui.mainlyy.main:GetChildren())do
+				if hit ~= game.CoreGui.mainlyy.main.top then
+				
+					hit.Visible = true
+			
+				end
+			end
+		end
+	end)
 
       invis.MouseButton1Click:connect(function()
 
