@@ -1,0 +1,407 @@
+local phold = false
+local susy = "no"
+local mouse = game.Players.LocalPlayer:GetMouse()
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+if game.Players.LocalPlayer.Data.Stand.Value == 1001 then
+	susy = "no"
+end
+end)
+wait(0)
+id1 = "rbxassetid://3445788051"
+id2 = "rbxassetid://4782250127"
+id3 = "rbxassetid://4774879706"
+id4 = "rbxassetid://2763936707"
+--if game.Name ~= "A Bizarre Day" then
+--id1 = "rbxassetid://4639551633"
+--id2 = "rbxassetid://4639725706"
+--id3 = "rbxassetid://4639554383"
+--end
+Anim3 = Instance.new("Animation")
+Anim3.AnimationId = id1 -- abd not modded
+Anim4 = Instance.new("Animation")
+Anim4.AnimationId = id4 -- EEE
+--Anim3.AnimationId = "rbxassetid://4639551633" -- abd modded
+Anim2 = Instance.new("Animation")
+Anim2.AnimationId = "rbxassetid://188632011"
+local mouse = game.Players.LocalPlayer:GetMouse()
+game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(h)
+	if h:IsA("LocalScript") then
+		h:Destroy()
+		print("yikes")
+	end
+end)
+repeat
+	wait(0.5)
+until game.Players.LocalPlayer.Character.Humanoid
+--_G.track3 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim3)
+--_G.track2 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim2)
+delay(0,function()
+	while true do
+		wait(0.5)
+		if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("h") == nil then
+			local h = Instance.new("Weld",game.Players.LocalPlayer.Character)
+			h.Name = "h"
+			print('_G.hhhh')
+			wait(1.5)
+			print("_G.hhhhh")
+			game.ReplicatedStorage.Block:FireServer(true)
+			_G.track3 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim3)
+			_G.track2 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim2)
+			_G.track4 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim4)
+		end
+	end
+end)
+local grabbed = false
+local barrage = false
+local nou = false
+local debounce = false
+hitsounds = {"rbxassetid://545219984","rbxassetid://4137216950","rbxassetid://166423137","rbxassetid://4164190231","rbxassetid://147722227"}
+_G.makehitbox = function(part,damage)
+		local hitbox1 = Instance.new("Part",game.Players.LocalPlayer.Character)
+		hitbox1.CFrame = part.CFrame
+		hitbox1.Name = "hitbox"
+		hitbox1.Anchored = false
+		hitbox1.CanCollide = false
+		local weld = Instance.new("WeldConstraint",hitbox1)
+		weld.Part0 = hitbox1
+		weld.Part1 = part
+		hitbox1.Size = part.Size
+		hitbox1.Transparency = 0
+		hitbox1.Color = Color3.new(0,0,0)
+		game.Debris:AddItem(hitbox1,.15)
+		local touch1 = hitbox1.Touched:Connect(function(hit)
+			if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+				if debounce == false then
+					debounce = true
+					print(hit.Parent.Name)
+					delay(0.001,function()debounce = false end)
+					game:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+					game:GetService("ReplicatedStorage").Damage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, damage, 0.3, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*25+Vector3.new(0,10,0),"rbxassetid://241837157", 0.2 ,Color3.new(1, 1, 1), "rbxassetid://1202656211", 1, 1)
+					hitbox1:Destroy()
+					
+				end
+			elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Parent.Name ~= game.Players.LocalPlayer.Name and not hit.Parent:IsA("Accessory") then
+				if debounce == false then
+					debounce = true
+					print(hit.Parent.Parent.Name)
+					delay(0.001,function()debounce = false end)
+					game:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+					game:GetService("ReplicatedStorage").Damage:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, damage, 0.3, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*25+Vector3.new(0,10,0),"rbxassetid://241837157", 0.2 ,Color3.new(1, 1, 1), "rbxassetid://1202656211", 1, 1)
+					hitbox1:Destroy()
+				end
+			end
+		end)
+		--delay(.1,function()if hitbox1 then hitbox1:Destroy() end end)
+end
+ 
+ _G.func = function()
+    local Animsus = Instance.new("Animation")
+	Animsus.AnimationId = "rbxassetid://7397919032"
+	--Anim.Looped = true
+	local tracksus = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Animsus)
+    tracksus:Play(.1, 1, 2)
+    game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(game:GetService("Players").LocalPlayer.Character.Head, " Consecutive Normal Punches ", "rbxassetid://0", 7, 10, 0)
+ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren())do
+	 if v:IsA("Part" or "MeshPart" or "UnionOperation") then
+		 v.Anchored = false
+	 end
+end
+	local hitbox1 = Instance.new("Part",game.Players.LocalPlayer.Character)
+	hitbox1.CFrame = game.Players.LocalPlayer.Character["Right Arm"].CFrame
+	hitbox1.Name = "hitbox"
+	hitbox1.Anchored = false
+	hitbox1.CanCollide = false
+	local weld = Instance.new("WeldConstraint",hitbox1)
+	weld.Part0 = hitbox1
+	weld.Part1 = game.Players.LocalPlayer.Character["Right Arm"]
+	hitbox1.Size = game.Players.LocalPlayer.Character["Right Arm"].Size*1.5
+	hitbox1.Massless = true
+	hitbox1.Transparency = 1
+	hitbox1.Color = Color3.new(0,0,0)
+	local hitbox2 = Instance.new("Part",game.Players.LocalPlayer.Character)
+	hitbox2.CFrame = game.Players.LocalPlayer.Character["Left Arm"].CFrame
+	hitbox2.Name = "hitbox"
+	hitbox2.Anchored = false
+	hitbox2.CanCollide = false
+	local weld = Instance.new("WeldConstraint",hitbox2)
+	weld.Part0 = hitbox2
+	weld.Part1 = game.Players.LocalPlayer.Character["Left Arm"]
+	hitbox2.Size = game.Players.LocalPlayer.Character["Left Arm"].Size*1.5
+	hitbox2.Massless = true
+	hitbox2.Transparency = 1
+	hitbox2.Color = Color3.new(0,0,0)
+	
+	local touch1 = hitbox1.Touched:Connect(function(hit)
+		if (hit.Parent:FindFirstChild("Humanoid"))and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				print(hit.Parent.Name)
+				debounce = true
+				delay(0,function()debounce = false end)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 20000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+			end
+		elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Parent.Name)
+				delay(0,function()debounce = false end)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 20000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+			end
+		end
+	end)
+	local touch2 = hitbox2.Touched:Connect(function(hit)
+		if (hit.Parent:FindFirstChild("Humanoid"))and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				print(hit.Parent.Name)
+				debounce = true
+				delay(0,function()debounce = false end)
+				--game:GetService("ReplicatedStorage").Damage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 12.8, 0.8, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.05, hitsounds[1], 1, 8)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 20000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+			end
+		elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Parent.Name)
+				delay(0,function()debounce = false end)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 20000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+			end
+		end
+	end)
+	local touch2 = hitbox2.Touched:Connect(function(hit)
+		if (hit.Parent:FindFirstChild("Humanoid"))and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				print(hit.Parent.Name)
+				debounce = true
+				delay(0,function()debounce = false end)
+				--game:GetService("ReplicatedStorage").Damage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 12.8, 0.8, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.05, hitsounds[1], 1, 2)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 20000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+			end
+		elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Parent.Name)
+				delay(0,function()debounce = false end)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 20000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+			end
+		end
+	end)
+	barrage = not barrage
+    _G.contc = mouse.KeyDown:Connect(function(key)
+	    if key == 'd' then
+	        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren())do
+	    	    if v.Name == "hitbox" then
+	    	    	v:Destroy()
+	    	    end
+	        end
+            tracksus:Stop()
+        end
+    end)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+end
+_G.strong = function()
+ game.ReplicatedStorage.PlayerStrongPunch:FireServer(Vector3.new(5,6,5),Vector3.new(1,1,1),BrickColor.new("Black"))
+ --game.ReplicatedStorage.PlayerStrongPunch:FireServer(Vector3.new(1,1,1),Vector3.new(1,1,1),BrickColor.new("Black"))
+ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren())do
+	 if v:IsA("Part" or "MeshPart" or "UnionOperation") then
+		 v.Anchored = false
+	 end
+end
+	local hitbox1 = Instance.new("Part",game.Players.LocalPlayer.Character)
+	hitbox1.CFrame = game.Players.LocalPlayer.Character["Right Arm"].CFrame
+	hitbox1.Name = "hitbox"
+	hitbox1.Anchored = false
+	hitbox1.CanCollide = false
+	local weld = Instance.new("WeldConstraint",hitbox1)
+	weld.Part0 = hitbox1
+	weld.Part1 = game.Players.LocalPlayer.Character["Right Arm"]
+	hitbox1.Size = game.Players.LocalPlayer.Character["Right Arm"].Size*1.5
+	hitbox1.Massless = true
+	hitbox1.Transparency = 1
+	hitbox1.Color = Color3.new(0,0,0)
+	local Anim = Instance.new("Animation")
+	Anim.AnimationId = "rbxassetid://218504594"
+	--Anim.Looped = true
+	local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+	local touch1 = hitbox1.Touched:Connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Name)
+				delay(0.001,function()debounce = false end)
+				game:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 50000000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+				hitbox1:Destroy()
+				
+			end
+		elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Parent.Name ~= game.Players.LocalPlayer.Name and not hit.Parent:IsA("Accessory") then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Parent.Name)
+				delay(0.001,function()debounce = false end)
+				game:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+				game:GetService("ReplicatedStorage").Damage5:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 50000000, 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075, "rbxassetid://137579113", 0.9, 0.9)
+				hitbox1:Destroy()
+			end
+		end
+	end)
+    track:Play(.1, 1, 2)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+	wait(0.4)
+	if hitbox1 then
+		hitbox1:Destroy()
+	end
+end
+
+_G.lepunch = function()
+game.ReplicatedStorage.PlayerStrongPunch:FireServer(Vector3.new(0.2,0.2,0.2),Vector3.new(0.2,0.2,0.2),BrickColor.new("Black"))
+ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren())do
+	 if v:IsA("Part" or "MeshPart" or "UnionOperation") then
+		 v.Anchored = false
+	 end
+end
+	local hitbox1 = Instance.new("Part",game.Players.LocalPlayer.Character)
+	hitbox1.CFrame = game.Players.LocalPlayer.Character["Left Arm"].CFrame
+	hitbox1.Name = "hitbox"
+	hitbox1.Anchored = false
+	hitbox1.CanCollide = false
+	local weld = Instance.new("WeldConstraint",hitbox1)
+	weld.Part0 = hitbox1
+	weld.Part1 = game.Players.LocalPlayer.Character["Left Arm"]
+	hitbox1.Size = game.Players.LocalPlayer.Character["Left Arm"].Size*1.5
+	hitbox1.Massless = true
+	hitbox1.Transparency = 1
+	hitbox1.Color = Color3.new(0,0,0)
+	local Anim = Instance.new("Animation")
+	Anim.AnimationId = "rbxassetid://218504594"
+	--Anim.Looped = true
+	local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+	local touch1 = hitbox1.Touched:Connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Name)
+				delay(0.001,function()debounce = false end)
+				--:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+				game:GetService("ReplicatedStorage").Damage11:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, hit.Parent.Humanoid.Health - hit.Parent.Humanoid.MaxHealth, 0.8, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075 ,"rbxassetid://220834000", 0.9, 0.44)
+				hitbox1:Destroy()
+				
+			end
+		elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Parent.Name ~= game.Players.LocalPlayer.Name and not hit.Parent:IsA("Accessory") then
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Parent.Name)
+				delay(0.001,function()debounce = false end)
+				--game:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+				game:GetService("ReplicatedStorage").Damage11:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, hit.Parent.Parent.Humanoid.Health - hit.Parent.Parent.Humanoid.MaxHealth, 0.8, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*-1+Vector3.new(0,0,0), 0.075 ,"rbxassetid://220834000", 0.9, 0.44)
+				hitbox1:Destroy()
+			end
+		end
+	end)
+    track:Play(.1, 1, 2)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+	wait(0.4)
+	if hitbox1 then
+		hitbox1:Destroy()
+	end
+end
+_G.lepunchy = function()
+game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(game:GetService("Players").LocalPlayer.Character.Head, " Slightly Serious Punch ", "rbxassetid://0", 7, 10, 0)
+game.ReplicatedStorage.PlayerStrongPunch:FireServer(Vector3.new(0.2,0.2,0.2),Vector3.new(0.2,0.2,0.2),BrickColor.new("Black"))
+ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren())do
+	 if v:IsA("Part" or "MeshPart" or "UnionOperation") then
+		 v.Anchored = false
+	 end
+end
+	local hitbox1 = Instance.new("Part",game.Players.LocalPlayer.Character)
+	hitbox1.CFrame = game.Players.LocalPlayer.Character["Left Arm"].CFrame
+	hitbox1.Name = "hitbox"
+	hitbox1.Anchored = false
+	hitbox1.CanCollide = false
+	local weld = Instance.new("WeldConstraint",hitbox1)
+	weld.Part0 = hitbox1
+	weld.Part1 = game.Players.LocalPlayer.Character["Left Arm"]
+	hitbox1.Size = game.Players.LocalPlayer.Character["Left Arm"].Size*1.5
+	hitbox1.Massless = true
+	hitbox1.Transparency = 1
+	hitbox1.Color = Color3.new(0,0,0)
+	local Anim = Instance.new("Animation")
+	Anim.AnimationId = "rbxassetid://218504594"
+	--Anim.Looped = true
+	local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+	local touch1 = hitbox1.Touched:Connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
+		game:GetService("ReplicatedStorage").Taunt:FireServer(game:GetService("Players").LocalPlayer.Character.Head,"rbxassetid://1228181736",10,0,0)
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Name)
+				delay(0.001,function()debounce = false end)
+				--:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+				game:GetService("ReplicatedStorage").Damage:FireServer(hit.Parent.Humanoid, hit.Parent.HumanoidRootPart.CFrame, 12, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*10+Vector3.new(99999999999999999999999999999999999999999999999,99999999999999999999999999999999999999999999999,99999999999999999999999999999999999999999999999),"rbxassetid://241837157", 0.03 ,Color3.new(1, 1, 1), hitsounds[1], 1, 1)
+				hitbox1:Destroy()
+				
+			end
+		elseif (hit.Parent.Parent:FindFirstChild("Humanoid"))and hit.Parent.Parent.Name ~= game.Players.LocalPlayer.Name and not hit.Parent:IsA("Accessory") then
+		game:GetService("ReplicatedStorage").Taunt:FireServer(game:GetService("Players").LocalPlayer.Character.Head,"rbxassetid://1228181736",10,0,0)
+			if debounce == false then
+				debounce = true
+				print(hit.Parent.Parent.Name)
+				delay(0.001,function()debounce = false end)
+				--game:GetService("ReplicatedStorage").Knock:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 1, 1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*1+Vector3.new(0,1,0), "rbxassetid://241837157", 1, Color3.new(1, 0, 0), "rbxassetid://4137216950", 0.8, 100)
+				game:GetService("ReplicatedStorage").Damage:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.HumanoidRootPart.CFrame, 12, 0.1, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*10+Vector3.new(99999999999999999999999999999999999999999999999,99999999999999999999999999999999999999999999999,99999999999999999999999999999999999999999999999),"rbxassetid://241837157", 0.03 ,Color3.new(1, 1, 1), hitsounds[1], 1, 1)
+				hitbox1:Destroy()
+			end
+		end
+	end)
+    track:Play(.1, 1, 2)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+	wait(0.4)
+	if hitbox1 then
+		hitbox1:Destroy()
+	end
+end
+_G.freeze = function()
+	game:GetService("ReplicatedStorage"):WaitForChild("RTZEffect"):FireServer()
+end
+_G.unfreeze = function()
+    game:GetService("ReplicatedStorage"):WaitForChild("Timestop"):FireServer(0/0, "dio")
+end
+
+
+
+_G.contc = mouse.KeyDown:Connect(function(key)
+	if game.Players.LocalPlayer.Data.Stand.Value == 1001 then
+		if key == 'e' then
+			_G.func()
+
+		elseif key == 'r' then
+
+			_G.strong()
+
+		elseif key == 't' then
+
+			_G.lepunch()
+
+		elseif key == 'b' then
+
+			_G.lepunchy()
+
+		elseif key == 'f' then
+
+			_G.freeze()
+
+		elseif key == 'p' then
+
+			_G.unfreeze()
+
+		elseif key == 'w' then
+            if susy == "no" then
+            	susy = "yes"
+                game:GetService("ReplicatedStorage"):WaitForChild("Deflect"):FireServer(true)
+		game:GetService("ReplicatedStorage"):WaitForChild("Stand"):FireServer("DTWStand", 50, 100000000)
+		game.Players.LocalPlayer.Character.Humanoid.Walkspeed = 50
+		game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(game:GetService("Players").LocalPlayer.Character.Torso, " Emptyverse ", "rbxassetid://0", 7, math.huge, 0)
+	    end
+    end
+end)
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+
+	print('h') -- 4774749466
