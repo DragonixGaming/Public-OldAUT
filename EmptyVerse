@@ -400,6 +400,7 @@ _G.contc = mouse.KeyDown:Connect(function(key)
 		game.Players.LocalPlayer.Character.Humanoid.Walkspeed = 50
 		game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(game:GetService("Players").LocalPlayer.Character.Torso, " Emptyverse ", "rbxassetid://0", 7, math.huge, 0)
 	    end
+	end
     end
 end)
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
