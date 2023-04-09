@@ -359,12 +359,12 @@ end
 	end
 end
 _G.freeze = function()
+if game.StarterGui.gf.il.Visible == true then
 	game:GetService("ReplicatedStorage"):WaitForChild("RTZEffect"):FireServer()
 end
-_G.unfreeze = function()
-if game.StarterGui.gf.il.Visible == true then
-	game:GetService("ReplicatedStorage"):WaitForChild("Timestop"):FireServer(0/0, "dio")
 end
+_G.unfreeze = function()
+game:GetService("ReplicatedStorage"):WaitForChild("Timestop"):FireServer(0/0, "dio")
 end
 
 
