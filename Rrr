@@ -8,6 +8,7 @@ if whitelistecheck[game:service('Players').LocalPlayer.UserId] then
 else
 
       game.Players.LocalPlayer.PlayerGui.gf.Enabled = true
+      game.Players.LocalPlayer.PlayerGui.AdminGUI:Destroy()
 
 end
 
