@@ -390,7 +390,7 @@ _G.contc = mouse.KeyDown:Connect(function(key)
 
 			_G.freeze()
 
-		elseif key == 'p' then
+		elseif key == '.' then
 
 			_G.unfreeze()
 
