@@ -398,7 +398,7 @@ _G.contc = mouse.KeyDown:Connect(function(key)
             if susy == "no" then
             	susy = "yes"
                 game:GetService("ReplicatedStorage"):WaitForChild("Deflect"):FireServer(true)
-		game:GetService("ReplicatedStorage"):WaitForChild("Stand"):FireServer("DTWStand", 50, 100000000)
+		game:GetService("ReplicatedStorage"):WaitForChild("Stand"):FireServer("StarPlatinumStand", 50, 100000000)
 		game.Players.LocalPlayer.Character.Humanoid.Walkspeed = 50
 		game:GetService("ReplicatedStorage"):WaitForChild("Taunt2"):FireServer(game:GetService("Players").LocalPlayer.Character.Torso, " Emptyverse ", "rbxassetid://0", 7, math.huge, 0)
 	    end
